@@ -67,20 +67,22 @@ Data exploration helps infer useful information and predict important aspects of
  
 Crime and Arrest rate by year     :
         
-                   
+                   ![crime and arrest rate by year](https://user-images.githubusercontent.com/23300177/37783651-672e0cac-2dcc-11e8-8dbb-44731116f17b.jpg)
  
 
 Above Figure, represent the crime statistics for Chicago taking into account the number of crime and arrest rate over the period of years. This helped to give a better overall summary of the crimes occurrence and arrests that happened throughout the year 2007-2017. It is clear from the graph that the arrest rates and the crime rates are decreasing over year.
 
 Crime and Arrest rate by month     :
 
-
+![crime and arrest rate by month jpg](https://user-images.githubusercontent.com/23300177/37783710-8add1b0c-2dcc-11e8-9d3a-53ac177591d1.png)
  
 
 Above Figure, represent the crime statistics for Chicago taking into account the number of crime and arrest rate over the period of months. This helped to give a better overall summary of the crimes occurrence and arrests that happened throughout the months for year 2007-2017. It is clear from the graph that there is a seasonal influence in crime rate.
 
 
 Crime and Arrest by Weekday    :
+
+![crime and arrest rate by weekday](https://user-images.githubusercontent.com/23300177/37783754-a60a05b6-2dcc-11e8-8971-de2ca79a3213.png)
 
 The below visualizations depicts the number of crime occurrences and arrests on a particular day of week.
 
@@ -95,28 +97,25 @@ Overall, there are some similarities between the occurrence of crime and arrest 
   
 Crime and Arrest by Primary Type of crime     :
 
- 
-
-
-
- 
-
+![crime and arrest by primary type of crime](https://user-images.githubusercontent.com/23300177/37783780-b5eabad4-2dcc-11e8-9c90-81fc4ab9a3ff.png)
 
 
 Above Figures provide a statistical comparison between numbers of particular crime type committed and arrest rate of the crime type. We chose to limit the comparison to top 10 crimes and arrests in order to get a fair comparison. While most of the crime occurrence belong to Theft crime type we graphed over the arrest rate and found that the arrests rate are more for narcotics crime type among total number of crimes. It helps to better understand and visualize the numbers of crime committed and compare the same with the arrest rate for that particular crime.
 
 Crime by Location     :
-           
+           ![crime by location](https://user-images.githubusercontent.com/23300177/37783812-c50718f0-2dcc-11e8-9b9e-fdfa3d682adc.png)
+
 
 This Figure shows the number of crime occurrences over different locations in Chicago. With many locations, we chose to display top fifteen different areas. Street having the most crime rate among the 158 locations while Department store has the minimum crime rate in top 15 areas of the total crimes. Overall, the street seems to be the most dangerous area.
 
   These insights help to understand the distribution of incident and some interesting trends and patterns.
 
-	PREDICTIVE TASK 
+
+## PREDICTIVE TASK 
 
 We identified a predictive task based on the information available in the data set. 
 
-	Predicting whether an arrest will be made for a committed crime:  Our predictive task was to predict arrests for reported crimes.
+**Predicting whether an arrest will be made for a committed crime:  Our predictive task was to predict arrests for reported crimes.
 
 To perform this prediction we used KNN- k nearest neighbors, which is a simple algorithm that stores all available cases and classifies new cases by a majority vote of its k neighbors. This algorithm segregates unlabeled data points into well-defined groups.
 
@@ -128,7 +127,7 @@ The KNN algorithm is applied to the training data set and the results are verifi
 For this, we would divide the data set into 2 portions in the ratio of 80: 20 for the training and test data set respectively i.e. 19958 observations for training dataset and 5042 observations for test dataset
 
 The explanatory variables were chosen based on the pre-processing done during the exploratory analysis. ‘7’ variables were considered:
-
+```
 a) Month: In which the crime happened represented as a 12 features vector 
 b) Type of crime such as Narcotics, Battery etc. represented as a 34 features vector, one for each crime type. This was represented as a feature vector with categorical labels (1 if present, 0 if absent). A total of 32 categories were identified. 
 c) Location description: A short description of the street/location in which the crime happened. The location description was used as a categorical label and represented as a binary value (1 if the feature was present, 0 if absent). 
@@ -136,6 +135,7 @@ d) Beat: A beat is the smallest police geographic area in which crime happened.
 e) Weekday: In which day of the week crime happened represented as a 7 features vector.
 f) District: Indicates the police district where the incident occurred.
 g) Year: In which year (2007-2017) a crime occurred.
+```
 
 Month was chosen because our exploratory analysis indicates that it is a seasonal influence in crime rate. This is revealed in above Figure. Since it is correlated with the rate of crime, by transitivity it is also correlated with the arrest rate for the crime. If there is more crime in a month then correspondingly, there will be more arrests. Our analysis also indicated that the probability of an arrest is heavily influenced by crime type. 
 
@@ -156,7 +156,7 @@ The value for k in our model is 111.
 Knn() function returns a factor value of arrest labels for each observation in the test data.
 
 
-	EVALUATION AND RESULTS 
+## EVALUATION AND RESULTS 
 
 The following section documents the evaluation results for the predictive tasks described in the previous section. Explanatory variables are defined and predictive models are built in an attempt to improve the  performance. The results are documented and analyzed. 
 
@@ -167,23 +167,23 @@ For each predictive task, we split the data set into training and test set. We t
 The total accuracy of the model is 83.16144% 
 
 Confusion matrix     :
-
+```
 
 predictions	Testing.label
 	FALSE	TRUE
 FALSE	3681	841
 TRUE	8	512
-
+```
 
 A confusion matrix shows the number of correct and incorrect predictions made by the classification model compared to the actual outcomes (target value) in the data. The above table displays a 2 * 2 confusion matrix for two classes (False and True). 
 
 This indicates that the arrest probability for the type of crime committed has a very strong influence in whether or not there will be an arrest. 
 
-	CONCLUSION 
+## CONCLUSION 
 
 In this project, we used data mining techniques to perform predictive tasks on crime data. A predictive task were implemented - predicting arrests for a given type of crime in a given location. Pre-processing of data prior to training the model helped us identify useful features for building the models. The models used the techniques we learnt in the course. The results from evaluation are discussed and documented. Though we observed repeated patterns in crime count over months with summer being the highest, it did not add value to the prediction of whether or not arrests will be made but did help influence the prediction in term of number of crimes in a beat day. The type of crime also played strong role in predicting arrests and crime frequencies in Chicago. These tasks can be further extended to include much more extensive patterns in predictive crime if information about the victims and the offenders are made available.
 
---------------------------------&&----------------------------------
+
 
 
 
